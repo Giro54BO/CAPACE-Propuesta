@@ -1,0 +1,929 @@
+/* ==========================================================================
+   PBS NewsHour — Design System
+   Extracted from https://www.pbs.org/newshour/
+   ========================================================================== */
+
+
+/* ==========================================================================
+   1. FONTS
+   @font-face declarations reference PBS CDN — use Google Fonts / local
+   equivalents in production:
+     • Publico   → commercial serif (Klim Type)
+     • Soehne    → commercial sans  (Klim Type)
+   ========================================================================== */
+
+/*
+  Publico weights available on PBS:
+    400 normal, 400 italic
+    500 normal, 500 italic
+    800 normal, 800 italic
+
+  Soehne weights available on PBS:
+    400 normal, 400 italic
+    600 semibold
+    700 bold
+*/
+
+
+/* ==========================================================================
+   2. DESIGN TOKENS — CSS Custom Properties
+   ========================================================================== */
+
+:root {
+
+  /* ---- Color Palette --------------------------------------------------- */
+
+  /* Primary brand */
+  --color-red:          #f83036;   /* primary accent / CTA red */
+  --color-red-dark:     #e40032;   /* hover / deeper red */
+  --color-red-deeper:   #c90006;   /* pressed state */
+  --color-red-darkest:  #9f0023;   /* darkest red variant */
+
+  /* Dark navy scale (backgrounds, text) */
+  --color-navy-darkest: #040824;   /* near-black navy */
+  --color-navy-darker:  #101721;   /* very dark navy */
+  --color-navy-dark:    #161f2d;   /* primary dark bg */
+  --color-navy:         #181c36;   /* alternate dark bg */
+  --color-navy-mid:     #22324b;   /* mid-dark navy */
+  --color-navy-light:   #273142;   /* lighter dark navy */
+  --color-navy-slate:   #31445d;   /* slate navy */
+
+  /* Blue scale */
+  --color-blue-deepest: #0a145a;   /* deep brand blue */
+  --color-blue-dark:    #19237e;   /* dark blue */
+  --color-blue-darker:  #2337cc;   /* rich blue */
+  --color-blue-bright:  #2ba6ff;   /* bright interactive blue */
+  --color-blue-sky:     #49acf3;   /* sky blue */
+  --color-blue-ice:     #ace4fd;   /* pale ice blue */
+
+  /* Steel / muted blue-grays */
+  --color-steel-dark:   #4c5e7b;
+  --color-steel:        #63768b;   /* mid steel */
+  --color-steel-mid:    #7e97ad;   /* primary steel */
+  --color-steel-light:  #9499bd;   /* light steel */
+
+  /* Purple */
+  --color-purple-deep:  #431160;
+  --color-purple-mid:   #521769;
+  --color-purple:       #9747ff;
+
+  /* Neutrals / grays */
+  --color-gray-200:     #e1e3ef;
+  --color-gray-300:     #d6dfe8;   /* light border/divider */
+  --color-gray-400:     #e2ecf2;
+  --color-gray-100:     #f0f1f8;   /* very pale */
+  --color-gray-50:      #f1f8fc;   /* near-white blue tint */
+  --color-white:        #ffffff;
+  --color-black:        #000000;
+  --color-near-black:   #141414;
+  --color-off-black:    #1f1f1f;
+  --color-charcoal:     #2c2c2c;
+
+  /* Accent */
+  --color-amber:        #f8b754;
+  --color-gold:         #ffcf00;
+  --color-gold-light:   #ffda61;
+
+
+  /* ---- Typography ------------------------------------------------------- */
+
+  --font-serif:         "Publico", Georgia, "Times New Roman", Times, serif;
+  --font-sans:          "Soehne", Arial, Helvetica, Verdana, sans-serif;
+  --font-sans-fallback: "Helvetica Neue", Roboto, "Segoe UI", Calibri, sans-serif;
+
+  /* Font sizes — px scale */
+  --text-2xs:   11px;
+  --text-xs:    12px;
+  --text-sm:    13px;
+  --text-base:  14px;
+  --text-md:    15px;
+  --text-body:  16px;    /* root body size */
+  --text-lg:    17px;
+  --text-xl:    18px;
+  --text-2xl:   20px;
+  --text-3xl:   22px;
+  --text-4xl:   24px;
+  --text-5xl:   28px;
+  --text-6xl:   32px;
+  --text-7xl:   36px;
+  --text-8xl:   42px;
+  --text-9xl:   48px;
+  --text-10xl:  56px;
+  --text-11xl:  65px;
+  --text-12xl:  72px;
+
+  /* Font weights */
+  --weight-regular:    400;
+  --weight-medium:     500;
+  --weight-semibold:   600;
+  --weight-bold:       700;
+  --weight-extrabold:  800;
+
+  /* Line heights */
+  --leading-tightest:  1.08em;
+  --leading-tighter:   1.14em;
+  --leading-tight:     1.2em;
+  --leading-snug:      1.3em;
+  --leading-normal:    1.4em;
+  --leading-relaxed:   1.5em;
+  --leading-loose:     1.6em;
+  --leading-looser:    1.7em;
+  --leading-loosest:   1.8em;
+
+  /* Letter spacing */
+  --tracking-tight:    -0.01em;
+  --tracking-normal:    0.005em;
+  --tracking-wide:      0.04em;
+  --tracking-wider:     0.05em;
+
+
+  /* ---- Spacing ---------------------------------------------------------- */
+
+  --space-1:    4px;
+  --space-2:    8px;
+  --space-3:    12px;
+  --space-4:    16px;
+  --space-5:    20px;
+  --space-6:    24px;
+  --space-7:    28px;
+  --space-8:    32px;
+  --space-9:    36px;
+  --space-10:   40px;
+  --space-12:   48px;
+  --space-14:   56px;
+  --space-16:   64px;
+  --space-20:   80px;
+  --space-24:   96px;
+
+
+  /* ---- Border Radius ---------------------------------------------------- */
+
+  --radius-none:   0;
+  --radius-xs:     2px;
+  --radius-sm:     4px;
+  --radius-md:     5px;
+  --radius-lg:     8px;
+  --radius-xl:     10px;
+  --radius-2xl:    18px;
+  --radius-3xl:    20px;
+  --radius-pill:   50px;
+  --radius-full:   50%;
+
+
+  /* ---- Shadows ---------------------------------------------------------- */
+
+  --shadow-inset-sm:    0 -1px 0 var(--color-gray-300) inset;
+  --shadow-inset-md:    0 -2px 0 var(--color-navy-dark) inset;
+  --shadow-inset-red:   0 -2px 0 var(--color-red) inset;
+  --shadow-blue:       -2px 0 6px rgba(18, 94, 149, 0.6);
+
+
+  /* ---- Breakpoints (reference only — use in @media queries) ------------- */
+  /*
+    --bp-sm:    600px
+    --bp-md:    768px
+    --bp-lg:    960px
+    --bp-xl:   1200px
+    --bp-2xl:  1400px
+    --bp-3xl:  1700px
+  */
+}
+
+
+/* ==========================================================================
+   3. RESET & BASE
+   ========================================================================== */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: var(--text-body);
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: var(--font-sans);
+  font-weight: var(--weight-regular);
+  font-size: var(--text-body);
+  line-height: var(--leading-normal);
+  color: var(--color-navy-dark);
+  background-color: var(--color-white);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+img,
+video {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+
+/* ==========================================================================
+   4. TYPOGRAPHY SCALE
+   ========================================================================== */
+
+/* Display / Hero headings — Publico serif */
+.text-display-xl {
+  font-family: var(--font-serif);
+  font-weight: var(--weight-extrabold);
+  font-size: var(--text-12xl);      /* 72px */
+  line-height: var(--leading-tightest);
+  letter-spacing: var(--tracking-tight);
+}
+
+.text-display-lg {
+  font-family: var(--font-serif);
+  font-weight: var(--weight-extrabold);
+  font-size: var(--text-10xl);      /* 56px */
+  line-height: var(--leading-tighter);
+  letter-spacing: var(--tracking-tight);
+}
+
+/* Article / section headings */
+h1, .h1 {
+  font-family: var(--font-serif);
+  font-weight: var(--weight-extrabold);
+  font-size: var(--text-9xl);       /* 48px */
+  line-height: var(--leading-tight);
+  letter-spacing: var(--tracking-tight);
+}
+
+h2, .h2 {
+  font-family: var(--font-serif);
+  font-weight: var(--weight-extrabold);
+  font-size: var(--text-7xl);       /* 36px */
+  line-height: var(--leading-tight);
+  letter-spacing: var(--tracking-tight);
+}
+
+h3, .h3 {
+  font-family: var(--font-serif);
+  font-weight: var(--weight-extrabold);
+  font-size: var(--text-6xl);       /* 32px */
+  line-height: var(--leading-snug);
+}
+
+h4, .h4 {
+  font-family: var(--font-serif);
+  font-weight: var(--weight-extrabold);
+  font-size: var(--text-5xl);       /* 28px */
+  line-height: var(--leading-snug);
+}
+
+h5, .h5 {
+  font-family: var(--font-serif);
+  font-weight: var(--weight-bold);
+  font-size: var(--text-4xl);       /* 24px */
+  line-height: var(--leading-normal);
+}
+
+h6, .h6 {
+  font-family: var(--font-serif);
+  font-weight: var(--weight-bold);
+  font-size: var(--text-3xl);       /* 22px */
+  line-height: var(--leading-normal);
+}
+
+/* Body text */
+.text-body-lg {
+  font-family: var(--font-sans);
+  font-size: var(--text-xl);        /* 18px */
+  line-height: var(--leading-loose);
+}
+
+.text-body {
+  font-family: var(--font-sans);
+  font-size: var(--text-body);      /* 16px */
+  line-height: var(--leading-relaxed);
+}
+
+.text-body-sm {
+  font-family: var(--font-sans);
+  font-size: var(--text-base);      /* 14px */
+  line-height: var(--leading-normal);
+}
+
+/* Labels / metadata / eyebrows */
+.text-label {
+  font-family: var(--font-sans);
+  font-weight: var(--weight-bold);
+  font-size: var(--text-xs);        /* 12px */
+  line-height: var(--leading-tight);
+  letter-spacing: var(--tracking-wider);
+  text-transform: uppercase;
+}
+
+.text-eyebrow {
+  font-family: var(--font-sans);
+  font-weight: var(--weight-semibold);
+  font-size: var(--text-sm);        /* 13px */
+  line-height: var(--leading-tight);
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+}
+
+.text-caption {
+  font-family: var(--font-sans);
+  font-size: var(--text-xs);        /* 12px */
+  line-height: var(--leading-snug);
+  color: var(--color-steel);
+}
+
+
+/* ==========================================================================
+   5. COLORS — UTILITY CLASSES
+   ========================================================================== */
+
+.color-red        { color: var(--color-red); }
+.color-navy       { color: var(--color-navy-dark); }
+.color-steel      { color: var(--color-steel-mid); }
+.color-white      { color: var(--color-white); }
+.color-blue       { color: var(--color-blue-bright); }
+
+.bg-navy-dark     { background-color: var(--color-navy-dark); }
+.bg-navy-darkest  { background-color: var(--color-navy-darkest); }
+.bg-red           { background-color: var(--color-red); }
+.bg-white         { background-color: var(--color-white); }
+.bg-gray-50       { background-color: var(--color-gray-50); }
+.bg-blue-deepest  { background-color: var(--color-blue-deepest); }
+
+
+/* ==========================================================================
+   6. LAYOUT
+   ========================================================================== */
+
+.container {
+  width: 100%;
+  max-width: 1280px;
+  margin-inline: auto;
+  padding-inline: var(--space-4);
+}
+
+.container--narrow {
+  max-width: 960px;
+}
+
+.container--wide {
+  max-width: 1400px;
+}
+
+/* Content grid: main column + sidebar */
+.grid-content {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-8);
+}
+
+@media (min-width: 960px) {
+  .grid-content {
+    grid-template-columns: minmax(0, 1fr) 300px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .grid-content {
+    grid-template-columns: minmax(0, 1fr) 340px;
+  }
+}
+
+/* Card grid */
+.grid-cards {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-6);
+}
+
+@media (min-width: 600px) {
+  .grid-cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 960px) {
+  .grid-cards {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (min-width: 1200px) {
+  .grid-cards--4col {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+
+/* ==========================================================================
+   7. NAVIGATION
+   ========================================================================== */
+
+.nav {
+  display: flex;
+  align-items: center;
+  background-color: var(--color-navy-dark);
+  padding-block: var(--space-3);
+  padding-inline: var(--space-4);
+}
+
+.nav__logo {
+  flex-shrink: 0;
+  margin-right: var(--space-8);
+}
+
+.nav__links {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  gap: var(--space-6);
+}
+
+.nav__link {
+  font-family: var(--font-sans);
+  font-weight: var(--weight-semibold);
+  font-size: var(--text-sm);
+  line-height: var(--leading-tight);
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  color: var(--color-white);
+  transition: color 0.15s ease;
+}
+
+.nav__link:hover,
+.nav__link--active {
+  color: var(--color-steel-mid);
+}
+
+.nav__link--active {
+  box-shadow: var(--shadow-inset-red);
+  padding-bottom: 2px;
+}
+
+
+/* ==========================================================================
+   8. ARTICLE CARD
+   ========================================================================== */
+
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.card__image-wrap {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 16 / 9;
+  background-color: var(--color-gray-300);
+}
+
+.card__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.card:hover .card__image {
+  transform: scale(1.03);
+}
+
+.card__category {
+  font-family: var(--font-sans);
+  font-weight: var(--weight-bold);
+  font-size: var(--text-xs);
+  letter-spacing: var(--tracking-wider);
+  text-transform: uppercase;
+  color: var(--color-red);
+}
+
+.card__headline {
+  font-family: var(--font-serif);
+  font-weight: var(--weight-extrabold);
+  font-size: var(--text-5xl);       /* 28px default */
+  line-height: var(--leading-tight);
+  letter-spacing: var(--tracking-tight);
+  color: var(--color-navy-dark);
+  transition: color 0.15s ease;
+}
+
+.card:hover .card__headline {
+  color: var(--color-red);
+}
+
+.card__headline--sm {
+  font-size: var(--text-2xl);       /* 20px */
+}
+
+.card__headline--lg {
+  font-size: var(--text-8xl);       /* 42px */
+}
+
+.card__meta {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-family: var(--font-sans);
+  font-size: var(--text-xs);
+  color: var(--color-steel);
+}
+
+.card__author {
+  font-weight: var(--weight-semibold);
+}
+
+.card__duration {
+  font-weight: var(--weight-regular);
+  color: var(--color-steel-mid);
+}
+
+/* Dark variant */
+.card--dark {
+  background-color: var(--color-navy-dark);
+  padding: var(--space-4);
+}
+
+.card--dark .card__headline {
+  color: var(--color-white);
+}
+
+.card--dark .card__meta {
+  color: var(--color-steel-mid);
+}
+
+
+/* ==========================================================================
+   9. HERO
+   ========================================================================== */
+
+.hero {
+  position: relative;
+  background-color: var(--color-navy-dark);
+  color: var(--color-white);
+  overflow: hidden;
+}
+
+.hero__media {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+}
+
+.hero__content {
+  padding: var(--space-6) var(--space-4);
+}
+
+.hero__category {
+  font-family: var(--font-sans);
+  font-weight: var(--weight-bold);
+  font-size: var(--text-xs);
+  letter-spacing: var(--tracking-wider);
+  text-transform: uppercase;
+  color: var(--color-red);
+  margin-bottom: var(--space-2);
+}
+
+.hero__headline {
+  font-family: var(--font-serif);
+  font-weight: var(--weight-extrabold);
+  font-size: var(--text-8xl);       /* 42px mobile */
+  line-height: var(--leading-tighter);
+  letter-spacing: var(--tracking-tight);
+  color: var(--color-white);
+}
+
+@media (min-width: 960px) {
+  .hero__headline {
+    font-size: var(--text-10xl);    /* 56px desktop */
+  }
+}
+
+@media (min-width: 1200px) {
+  .hero__headline {
+    font-size: var(--text-12xl);    /* 72px wide */
+  }
+}
+
+
+/* ==========================================================================
+   10. BUTTONS
+   ========================================================================== */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  font-family: var(--font-sans);
+  font-weight: var(--weight-bold);
+  font-size: var(--text-sm);
+  line-height: 1;
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  padding: var(--space-3) var(--space-6);
+  border: 2px solid transparent;
+  border-radius: var(--radius-none);
+  cursor: pointer;
+  transition: background-color 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+  text-decoration: none;
+}
+
+/* Primary — red fill */
+.btn--primary {
+  background-color: var(--color-red);
+  color: var(--color-white);
+}
+
+.btn--primary:hover,
+.btn--primary:focus {
+  background-color: var(--color-red-dark);
+}
+
+/* Secondary — navy fill */
+.btn--secondary {
+  background-color: var(--color-navy-dark);
+  color: var(--color-white);
+}
+
+.btn--secondary:hover,
+.btn--secondary:focus {
+  background-color: var(--color-navy-light);
+}
+
+/* Outlined — white border */
+.btn--outline {
+  background-color: transparent;
+  border-color: var(--color-white);
+  color: var(--color-white);
+}
+
+.btn--outline:hover,
+.btn--outline:focus {
+  background-color: var(--color-white);
+  color: var(--color-navy-dark);
+}
+
+/* Ghost — transparent */
+.btn--ghost {
+  background-color: transparent;
+  color: var(--color-navy-dark);
+  border-color: var(--color-navy-dark);
+}
+
+.btn--ghost:hover,
+.btn--ghost:focus {
+  background-color: var(--color-navy-dark);
+  color: var(--color-white);
+}
+
+/* Sizes */
+.btn--sm {
+  font-size: var(--text-xs);
+  padding: var(--space-2) var(--space-4);
+}
+
+.btn--lg {
+  font-size: var(--text-body);
+  padding: var(--space-4) var(--space-8);
+}
+
+
+/* ==========================================================================
+   11. TAGS / BADGES
+   ========================================================================== */
+
+.tag {
+  display: inline-block;
+  font-family: var(--font-sans);
+  font-weight: var(--weight-bold);
+  font-size: var(--text-xs);
+  line-height: 1;
+  letter-spacing: var(--tracking-wider);
+  text-transform: uppercase;
+  padding: var(--space-1) var(--space-2);
+  border-radius: var(--radius-none);
+}
+
+.tag--red {
+  background-color: var(--color-red);
+  color: var(--color-white);
+}
+
+.tag--navy {
+  background-color: var(--color-navy-dark);
+  color: var(--color-white);
+}
+
+.tag--steel {
+  background-color: var(--color-steel-mid);
+  color: var(--color-white);
+}
+
+/* Live badge */
+.badge--live {
+  background-color: var(--color-red);
+  color: var(--color-white);
+  font-family: var(--font-sans);
+  font-weight: var(--weight-bold);
+  font-size: var(--text-xs);
+  letter-spacing: var(--tracking-wider);
+  text-transform: uppercase;
+  padding: 2px var(--space-2);
+  border-radius: var(--radius-xs);
+}
+
+
+/* ==========================================================================
+   12. SECTION HEADERS
+   ========================================================================== */
+
+.section-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  padding-bottom: var(--space-3);
+  border-bottom: 2px solid var(--color-navy-dark);
+  margin-bottom: var(--space-6);
+}
+
+.section-header__title {
+  font-family: var(--font-sans);
+  font-weight: var(--weight-extrabold);
+  font-size: var(--text-lg);
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  color: var(--color-navy-dark);
+}
+
+.section-header__link {
+  font-family: var(--font-sans);
+  font-weight: var(--weight-semibold);
+  font-size: var(--text-xs);
+  letter-spacing: var(--tracking-wider);
+  text-transform: uppercase;
+  color: var(--color-red);
+  transition: color 0.15s ease;
+}
+
+.section-header__link:hover {
+  color: var(--color-red-dark);
+}
+
+
+/* ==========================================================================
+   13. DIVIDERS
+   ========================================================================== */
+
+.divider {
+  border: none;
+  border-top: 1px solid var(--color-gray-300);
+  margin-block: var(--space-6);
+}
+
+.divider--thick {
+  border-top-width: 2px;
+  border-top-color: var(--color-navy-dark);
+}
+
+.divider--red {
+  border-top-width: 2px;
+  border-top-color: var(--color-red);
+}
+
+
+/* ==========================================================================
+   14. INLINE LINK STYLES
+   ========================================================================== */
+
+.link-underline {
+  color: var(--color-navy-dark);
+  box-shadow: 0 -2px 0 var(--color-red) inset;
+  transition: color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.link-underline:hover {
+  color: var(--color-red);
+  box-shadow: 0 -2px 0 var(--color-red-dark) inset;
+}
+
+.link-underline--white {
+  color: var(--color-white);
+  box-shadow: 0 -2px 0 var(--color-white) inset;
+}
+
+.link-underline--white:hover {
+  color: var(--color-steel-mid);
+  box-shadow: 0 -2px 0 var(--color-steel-mid) inset;
+}
+
+
+/* ==========================================================================
+   15. FORMS / INPUTS
+   ========================================================================== */
+
+.input {
+  display: block;
+  width: 100%;
+  font-family: var(--font-sans);
+  font-size: var(--text-body);
+  font-weight: var(--weight-regular);
+  color: var(--color-navy-dark);
+  background-color: var(--color-white);
+  border: 1px solid var(--color-gray-300);
+  border-radius: var(--radius-none);
+  padding: var(--space-3) var(--space-4);
+  line-height: var(--leading-normal);
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+  outline: none;
+}
+
+.input:focus {
+  border-color: var(--color-navy-dark);
+  box-shadow: 0 0 0 2px rgba(22, 31, 45, 0.15);
+}
+
+.input--dark {
+  background-color: var(--color-navy-light);
+  color: var(--color-white);
+  border-color: var(--color-steel-mid);
+}
+
+.input--dark::placeholder {
+  color: var(--color-steel-mid);
+}
+
+.input--dark:focus {
+  border-color: var(--color-white);
+}
+
+
+/* ==========================================================================
+   16. FOOTER
+   ========================================================================== */
+
+.footer {
+  background-color: var(--color-navy-darkest);
+  color: var(--color-steel-mid);
+  padding-block: var(--space-12);
+  font-family: var(--font-sans);
+  font-size: var(--text-sm);
+}
+
+.footer__nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-8);
+  margin-bottom: var(--space-10);
+}
+
+.footer__nav-group-title {
+  font-weight: var(--weight-bold);
+  font-size: var(--text-xs);
+  letter-spacing: var(--tracking-wider);
+  text-transform: uppercase;
+  color: var(--color-white);
+  margin-bottom: var(--space-3);
+}
+
+.footer__nav-link {
+  color: var(--color-steel-mid);
+  line-height: var(--leading-loose);
+  transition: color 0.15s ease;
+}
+
+.footer__nav-link:hover {
+  color: var(--color-white);
+}
+
+.footer__legal {
+  border-top: 1px solid var(--color-navy-light);
+  padding-top: var(--space-6);
+  color: var(--color-steel);
+  font-size: var(--text-xs);
+}
+
+
+/* ==========================================================================
+   17. RESPONSIVE BREAKPOINTS (REFERENCE)
+   ========================================================================== */
+
+/*
+  Mobile-first breakpoints mirroring PBS NewsHour:
+
+  @media (min-width: 600px)  { ... }   sm  — small tablet
+  @media (min-width: 768px)  { ... }   md  — tablet
+  @media (min-width: 960px)  { ... }   lg  — desktop
+  @media (min-width: 1200px) { ... }   xl  — wide desktop
+  @media (min-width: 1400px) { ... }   2xl — ultra-wide
+  @media (min-width: 1700px) { ... }   3xl — max-width breakpoint
+*/
