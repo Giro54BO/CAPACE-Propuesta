@@ -63,8 +63,8 @@ if (navLinks.length && pageSections.length) {
       if (entry.isIntersecting) markActive(entry.target.id);
     });
   }, {
-    threshold: 0.25,
-    rootMargin: `-88px 0px -40% 0px`,
+    threshold: 0.1,
+    rootMargin: `-88px 0px -20% 0px`,
   });
 
   pageSections.forEach(s => sectionObserver.observe(s));
